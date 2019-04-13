@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "249848904411",
+    "firebase_url": "https://myappauth-7f952.firebaseio.com",
+    "project_id": "myappauth-7f952",
+    "storage_bucket": "myappauth-7f952.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249848904411:android:8ea6f4a3f3857280",
+        "android_client_info": {
+          "package_name": "com.example.waterplants"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249848904411-k0gkecopamp1c6vcbe5v6nta9s199a8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.waterplants",
+            "certificate_hash": "2e630c8a2ddd2c025a3053e9aa7b31cd523778cb"
+          }
+        },
+        {
+          "client_id": "249848904411-fahnvdog8l9tal3ce86k4ktgh51pd42f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP3OKFs0PSHKUVb4MATKYABfc_0fxzW20"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249848904411-fahnvdog8l9tal3ce86k4ktgh51pd42f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
