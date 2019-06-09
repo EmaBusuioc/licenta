@@ -1,4 +1,4 @@
 package com.example.waterplants;
 
-public class AlarmReceiver {
+public class ExtraFlower {
 }
