@@ -4,9 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_CALENDAR"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.STORAGE" />
 
     <application
         android:name=".DelayClass"
@@ -18,10 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".DrawerActivity"
-            android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".PlantProfileActivity" />
+        <activity android:name=".AddFlower" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -33,10 +31,14 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".FirstChild" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensor"
+            android:theme="@style/FinestWebViewTheme.Light" />
 
-
+        <receiver android:name=".AlertReceiver" />
     </application>
-
 
 </manifest>

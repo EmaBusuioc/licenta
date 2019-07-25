@@ -1,213 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/gradient"
-    tools:context=".FirstChild"
-    android:clipChildren="false"
-    android:clipToPadding="false">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
-
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:fitsSystemWindows="true">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/fc_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="32dp">
-
-            <TextView
-                android:id="@+id/txtDashboard"
-                android:text="@string/florile_mele"
-                android:layout_width="wrap_content"
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/MenuStyle">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
-                android:textColor="#FFFFFF"/>
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/user_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="5dp"
-                android:src="@drawable/def_user"
-                app:civ_border_color="@color/colorPrimary"
-                app:civ_border_width="3dp" />
+                android:orientation="vertical">
 
 
-        </RelativeLayout>
-
-        <GridLayout
-            android:columnOrderPreserved="false"
-            android:alignmentMode="alignMargins"
-            android:rowCount="2"
-            android:columnCount="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-            <android.support.v7.widget.CardView
-
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_margin="12dp"
-                app:cardBackgroundColor="#ccffff"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:id="@+id/CardView_calendar"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                >
-
-                <LinearLayout
-                    android:gravity="center"
-                    android:padding="7dp"
-                    android:orientation="vertical"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <CalendarView
-                        android:id="@+id/calendarView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/user_image"
+                        android:layout_width="39dp"
+                        android:layout_height="39dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/def_user"
+                        app:civ_border_color="@color/browser_actions_bg_grey"
+                        app:civ_border_width="0.5dp" />
+
 
                     <TextView
-                        android:id="@+id/childAct_calendar"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Calendar"
+                        android:id="@+id/txtDashboard"
+                        android:text=""
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_margin="12dp"
-                app:cardBackgroundColor="#ccffff"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:id="@+id/CardView_flower">
-
-
-                <LinearLayout
-
-                    android:gravity="center"
-                    android:padding="7dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <ImageView
-                        android:id="@+id/childAct_flower"
-                        android:src="@drawable/bookmark"
-                        android:layout_width="80dp"
-                        android:layout_margin="7dp"
-                        android:layout_height="80dp" />
-                    <TextView
-                        android:id="@id/childAct_flower"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Calendar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-
-                android:id="@+id/CardView_temp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_margin="12dp"
-                app:cardBackgroundColor="#3399ff"
-                app:cardElevation="6dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="12dp">
-
-                <LinearLayout
-                    android:gravity="center"
-                    android:padding="7dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <Button
-                        android:id="@+id/output"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/user_image"
+                        android:layout_toEndOf="@id/user_image"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="#FFFFFF"
+                        android:layout_centerVertical="true"
                         />
-                    <TextView
-                        android:id="@+id/childAct_temp"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        android:text="Temperatura"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                </RelativeLayout>
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_margin="12dp"
-                app:cardBackgroundColor="#3399ff"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:id="@+id/CardView_umid">
 
-                <LinearLayout
-                    android:gravity="center"
-                    android:padding="7dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <Button
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                    <TextView
-                        android:id="@+id/childAct_humid"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        android:text="Temperatura"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/both"
+                    android:layout_marginLeft="125dp"/>
+            </LinearLayout>
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+
+        </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.TabLayout
+
+
+            android:id="@+id/tb_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:tabSelectedTextColor="#FFFFFF"
+            app:tabIndicatorColor="#FFFFFF"
+            app:tabTextColor="@color/colorPrimaryDark"
+            ></android.support.design.widget.TabLayout>
+
+    </android.support.design.widget.AppBarLayout>
 
 
 
+    <android.support.v4.view.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+        />
 
 
-        </GridLayout>
-    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/recycler_view"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="30dp"
+        app:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_add" />
 
 
-</ScrollView>
+</android.support.design.widget.CoordinatorLayout>

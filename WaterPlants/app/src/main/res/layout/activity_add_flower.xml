@@ -6,4 +6,146 @@
     android:layout_height="match_parent"
     tools:context=".AddFlower">
 
+
+    <EditText
+        android:id="@+id/editInterval"
+        style="@android:style/Widget.EditText"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="184dp"
+        android:autofillHints="Username"
+        android:background="#11000000"
+        android:drawableStart="@drawable/ic_watch_later_black_24dp"
+        android:ems="10"
+        android:hint=" Interval"
+        android:inputType="number"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColorHint="#909090"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flw_png"
+        app:layout_constraintVertical_bias="0.281"
+        tools:targetApi="o" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/bar_layout"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/flw_pic"
+        android:layout_width="185dp"
+        android:layout_height="150dp"
+
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/icon_f"
+        app:civ_border_color="#CCFFFF"
+        app:civ_border_width="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/editFlw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/editFlw"
+        style="@android:style/Widget.EditText"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="#11000000"
+        android:drawableStart="@drawable/ic_local_florist_black_24dp"
+        android:ems="10"
+        android:hint=" Flower Name"
+        android:inputType="text"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColorHint="#909090"
+        app:layout_constraintBottom_toTopOf="@+id/editSpecie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="8dp"
+        android:text="Specie:"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/editSpecie"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/editFlw" />
+
+    <Spinner
+        android:id="@+id/editSpecie"
+        android:layout_width="221dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="256dp"
+        android:backgroundTint="#909090"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.719"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flw_png"
+        app:layout_constraintVertical_bias="0.281" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/CardViewFLW"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="3dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editSpecie">
+
+        <RelativeLayout
+            android:id="@+id/Reg_flw"
+            android:layout_width="297dp"
+            android:layout_height="35dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Înregistrare"
+                android:textAlignment="viewStart"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

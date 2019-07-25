@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,16 +49,18 @@ public class RegisterActivity extends AppCompatActivity {
         EditTextName=(EditText)findViewById(R.id.editName);
         ProgressDlg= new ProgressDialog(this);
         CardViewReg=(CardView)findViewById(R.id.cardViewReg);
-        mDatabase = FirebaseDatabase.getInstance().getReference("users");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        //toolbar arrow
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //toolbar.setNavigationIcon(R.drawable.ic_back);
 
-
-        user_pic.setOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-
-
-                startActivity(new Intent(RegisterActivity.this, DrawerActivity.class));
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
             }
         });
 
@@ -68,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if(registerUser() ){
 
-                    startActivity(new Intent(RegisterActivity.this, FirstChild.class));
+
                 }
 
 
@@ -80,11 +83,9 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void writeNewUser(String userId, String name, String email) {
-        User user = new User(name, email,0);
+        User user = new User(name, email,0,"default",0);
 
         mDatabase.child(userId).setValue(user);
-
-        // mDatabase.child(userId).child("Flori").setValue("Hello");
 
     }
     public static boolean isValidEmail(CharSequence target) {
@@ -103,28 +104,30 @@ public class RegisterActivity extends AppCompatActivity {
         email=EditTextEmail.getText().toString().trim();
         password=EditTextPassword.getText().toString().trim();
         name=EditTextName.getText().toString().trim();
+            final int[] st = new int[1];
 
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Vă rugăm să introduceți email.",Toast.LENGTH_SHORT).show();
             return false;
         }
         if(!isValidEmail(email)){
-            Toast.makeText(this,"Your email is not valid. @xxx.xxx missing.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Emailul nu este valid. Lipsește @xxx.xxx .",Toast.LENGTH_SHORT).show();
             return false;}
 
         if(TextUtils.isEmpty((password))){
-            Toast.makeText(this,"Please enter password.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Vă rugăm să introduceți parolă",Toast.LENGTH_SHORT).show();
             return false;
         }
         if(password.length()<6){
-            Toast.makeText(this,"Please enter password of 6 or more characters and at least 1 number",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Parola trebuie să fie de cel puțin șase caractere" +
+                    " și macar un număr",Toast.LENGTH_SHORT).show();
             return false;
         }
         if(TextUtils.isEmpty((name))){
-            Toast.makeText(this,"Please enter name.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Introduceți nume ",Toast.LENGTH_SHORT).show();
             return false;
         }
-        ProgressDlg.setMessage("Register User ...");
+        ProgressDlg.setMessage("Înregistrare utilizator ...");
         ProgressDlg.show();
 
         firebaseAuth.createUserWithEmailAndPassword(email,password)
@@ -132,17 +135,27 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(RegisterActivity.this,"Registered Succesfully",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Înregistrare finalizată",Toast.LENGTH_SHORT).show();
                             firebaseAuth.signInWithEmailAndPassword(email,password);
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             writeNewUser(user.getUid(), name,email);
+                            ProgressDlg.dismiss();
+                            Intent intn=new Intent(RegisterActivity.this, FirstChild.class);
+                            intn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intn);
 
+                            st[0] =1;
                         }else{
-                            Toast.makeText(RegisterActivity.this,"Could not register. please try again",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Înregistrarea nu s-a putut finaliza. Verificați conexiunea la internet",Toast.LENGTH_SHORT).show();
+                            ProgressDlg.dismiss();
+                            st[0] =0;
                         }
                     }
                 });
-        return true;
+        if(st[0] ==1)
+            return true;
+        else
+            return false;
     }
 
 }

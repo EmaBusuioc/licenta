@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth firebaseAuth;
     public String email, password;
     private static final String TAG = "MainActivity";
-
+    private FirebaseUser usr;
 
 
    @Override
@@ -43,12 +43,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditTextEmail=(EditText)findViewById(R.id.editUsername);
         EditTextPassword=(EditText)findViewById(R.id.EditPassword);
         ProgressDlg= new ProgressDialog(this);
+        mDatabase=FirebaseDatabase.getInstance().getReference("ExtraFlowers");
 
         CardViewLogin=(CardView)findViewById(R.id.cardView);
         CardViewLogin.setOnClickListener(this);
         TextViewRegister=(TextView)findViewById(R.id.textRegister);
         TextViewRegister.setOnClickListener(this);
 
+         usr=FirebaseAuth.getInstance().getCurrentUser();
+        if(usr!=null){
+            updateUI();
+        }
     }
 
 
@@ -70,11 +75,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v==CardViewLogin){
             //open login activity here
             if(TextUtils.isEmpty(email)){
-                Toast.makeText(this,"Please enter email.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Inserați email.",Toast.LENGTH_SHORT).show();
                 return;
             }
             if(TextUtils.isEmpty((password))){
-                Toast.makeText(this,"Please enter password.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Inserați parola.",Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -83,20 +88,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "signInWithEmail:success");
+                                // Logare cu succes, deschide activitatea următoare cu informațiile utilizatorului
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
-
-
                                 updateUI();
-
-
                             } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(MainActivity.this, "Authentication failed.",
+                                // Dacă logarea eșuează, afișează mesaj.
+                                Log.w(TAG, "Logare eșuată", task.getException());
+                                Toast.makeText(MainActivity.this, "Eroare la autentificare. Verificați rețea",
                                         Toast.LENGTH_SHORT).show();
-                               // updateUI(null);
                             }
                         }
                     });

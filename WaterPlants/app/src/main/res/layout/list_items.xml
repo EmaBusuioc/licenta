@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    app:cardBackgroundColor="#DACCFFFF"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="25dp"
+    app:cardElevation="1dp"
+    android:layout_centerInParent="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="1dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginLeft="20dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="25dp"
+            android:id="@+id/IV_specie"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/plant_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="2dp"
+            android:layout_alignTop="@+id/IV_specie"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/IV_specie"
+            android:layout_toEndOf="@id/IV_specie"
+            android:textSize="18dp"
+            android:text="Aloo"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/i1"
+            android:layout_marginLeft="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/plant_name"
+
+            android:layout_toRightOf="@id/IV_specie"
+            android:layout_toEndOf="@id/IV_specie"
+            android:textSize="16dp"
+            android:text="Interval de udare (zile): "/>
+
+        <TextView
+            android:id="@+id/tvInterval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/plant_name"
+            android:layout_toRightOf="@id/i1"
+            android:layout_toEndOf="@id/i1"
+            android:textSize="16dp"
+            android:text="Buna"/>
+
+        <TextView
+            android:id="@+id/tvTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_below="@id/tvInterval"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/i2"
+            android:layout_toEndOf="@id/i2"
+            android:textSize="16dp"
+            android:text="Buna"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/i2"
+            android:layout_marginLeft="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_below="@id/i1"
+            android:layout_toRightOf="@id/IV_specie"
+            android:layout_toEndOf="@id/IV_specie"
+            android:textSize="16dp"
+            android:text="Temperatură: "
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

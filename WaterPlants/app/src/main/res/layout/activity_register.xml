@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     tools:context=".RegisterActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/bar_layout"/>
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/flw_png"
@@ -24,7 +27,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="0.205" />
 
 
     <EditText
@@ -39,8 +42,8 @@
         android:background="#11000000"
         android:drawableStart="@drawable/ic_name"
         android:ems="10"
+        android:hint="Nume"
         android:inputType="textPersonName"
-        android:hint="Name"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/cardview_light_background"
         android:textColorHint="#eeeeee"
@@ -49,7 +52,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flw_png"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintVertical_bias="0.534" />
 
     <EditText
         android:id="@+id/editUsername2"
@@ -78,7 +81,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flw_png"
-        app:layout_constraintVertical_bias="0.333"
+        app:layout_constraintVertical_bias="0.281"
         tools:targetApi="o" />
 
     <EditText
@@ -97,7 +100,7 @@
         android:background="#11000000"
         android:drawableStart="@drawable/ic_action_password"
         android:ems="10"
-        android:hint="@string/password"
+        android:hint="Parolă"
         android:inputType="textPassword"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="#eeeeee"
@@ -138,7 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Register"
+                android:text="Înregistrare"
                 android:textAlignment="viewStart"
                 android:textColor="#fff"
                 android:textSize="18sp" />
